@@ -1,1 +1,621 @@
-sureshanandchristobher.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresh Christobher - Data Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #06b6d4;
+            --accent-light: #22d3ee;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border: #334155;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1f35 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--border);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+            animation: slideIn 1.2s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .title {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-light));
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .skill-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .skill-card:hover {
+            background: rgba(30, 41, 59, 0.9);
+            border-left-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .skill-card p {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover::before {
+            width: 16px;
+            height: 16px;
+            left: -40px;
+            background: var(--accent-light);
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .exp-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .exp-company {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .exp-duration {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .exp-location {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            background: rgba(30, 41, 59, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .edu-degree {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .edu-institution {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-dates {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Certifications & Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: var(--accent);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .title {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .contact-links a {
+                display: block;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Suresh Christobher</h1>
+            <p class="title">Data Architect | Databricks | Microsoft Fabric | Azure<br>Enterprise Data Platforms | AI & Generative AI | Data Governance</p>
+            <p class="tagline">TOGAF Certified • 18+ Years Experience • Greater Houston</p>
+            <div class="contact-links">
+                <a href="tel:+1-832-488-7197">Call: 832-488-7197</a>
+                <a href="mailto:chrissac1024@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/suresh-chris-data-engineer" target="_blank">LinkedIn Profile</a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">18+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Data Architecture</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">TOGAF</div>
+                <div class="stat-label">Certified</div>
+            </div>
+        </section>
+
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div style="background: rgba(30, 41, 59, 0.4); border: 1px solid var(--border); padding: 24px; border-radius: 8px; border-left: 4px solid var(--accent);">
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px;">Dynamic Techno-Functional Lead with over 18 years of experience specializing in Data Warehousing and high-availability production support in Microsoft Platform. Proven expertise in leading 24/7 managed services for enterprise-scale platforms.</p>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px;">Adept at managing global, cross-functional teams of engineers across multiple shifts, driving ITIL-based incidents, problems, and change management processes.</p>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Focused on AI-driven data solutions, working on integrating semantic search and vector-based data retrieval into data platforms to improve how complex datasets are accessed, explored, and utilized for intelligent analytics and next-generation applications.</p>
+            </div>
+        </section>
+
+        <!-- Core Competencies Section -->
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <p>✦ Data Architecture & Strategy</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Cloud-Native Solutions</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ ETL/ELT Development</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Data Integration & Orchestration</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Data Quality & Governance</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ AI & Advanced Data Capabilities</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Business Intelligence & Reporting</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Database & SQL Expertise</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Infrastructure & Performance Monitoring</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Leadership & Delivery</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Operational Excellence</p>
+                </div>
+                <div class="skill-card">
+                    <p>✦ Azure Fabric Data Engineering</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">Languages & Tools</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">C#, Python, PySpark, SparkSQL, SQL, PL/SQL, PowerShell, Azure CLI, Git BASH, Databricks CLI, KQL, YAML, TOML</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">Databases & DW</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">SQL Server, Azure Synapse, Snowflake, Azure SQL Database, Oracle, PostgreSQL, Cosmos DB, Redshift, TeraData, MySQL</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">Cloud Platforms</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Azure (Data Lake, Data Factory, Databricks, Synapse, Functions), AWS (S3, EC2, Lambda, Glue, Athena)</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">ETL & Orchestration</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Azure Data Factory, Azure Synapse Pipeline, Databricks, Apache Airflow, Informatica, SSIS, DBT, Snowpipe, AWS Glue</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">BI & Analytics</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Power BI, Tableau, SSRS, SSAS (MDX/DAX), Azure Data Explorer, Semantic Models, Direct Lake</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">Real-time & Streaming</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Apache Kafka, Azure Event Hub, Confluent Kafka, Azure Stream Analytics, Spark Structured Streaming</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">DevOps & Infrastructure</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Azure DevOps, GitHub Actions, Terraform, Ansible, Jenkins, Docker, Kubernetes, CI/CD Pipelines</p>
+                </div>
+                <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+                    <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">AI & ML</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">LangChain, LangGraph, RAG, Vector Databases, Claude, GPT-4, Scikit-Learn, Pydantic, MCP</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <p>✓ Databricks Certified Data Engineer</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ DP-700: Fabric Data Engineer</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ DP-600: Fabric Analytics Engineer</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ AZ-305: Azure Solution Architect</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ AZ-400: DevOps Engineer Expert</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ DP-203: Azure Data Engineer</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ AZ-204: Azure Developer</p>
+                </div>
+                <div class="skill-card">
+                    <p>✓ TOGAF Certified Architect</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="exp-title">Lead Data Engineer</div>
+                    <div class="exp-company">GCOM Information Technology Inc (SBA 8(a) Certified)</div>
+                    <div class="exp-duration">July 2026 - Present</div>
+                    <div class="exp-location">Houston, TX</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Lead Data Engineer</div>
+                    <div class="exp-company">Chevron Corp - DMC Ops Asset Class</div>
+                    <div class="exp-duration">July 2025 - June 2026</div>
+                    <div class="exp-location">Houston, TX</div>
+                    <div class="exp-description"><strong>CREG Lakehouse Migration & IPR Report Migration:</strong> Led end-to-end data migration from OneStream to Anaplan using Azure Synapse and ADLS Gen2. Designed medallion architecture pipelines, refactored complex Synapse notebooks, and migrated IPR reports to Microsoft Fabric. Reduced Azure costs by 30% through optimization strategies. Built Fabric Dataflows Gen2, Direct Lake Semantic Models, and implemented data governance with Microsoft Purview.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Lead Data Engineer</div>
+                    <div class="exp-company">Chevron Corp - STB Asset Class</div>
+                    <div class="exp-duration">July 2023 - June 2025</div>
+                    <div class="exp-location">Houston, TX</div>
+                    <div class="exp-description"><strong>Cloud Migration & Data Platform Optimization:</strong> Built Azure Data Factory pipelines for migrating legacy System of Record data from Oracle and SAP ECC into Azure Data Lake Gen2. Developed Databricks workflows using PySpark and SQL, created Delta tables with Time Travel capabilities, and optimized query performance through materialized views. Implemented dbt for data quality checks and CI/CD pipelines. Reduced SSIS package execution time by 55% and optimized Databricks cluster utilization for 30% cost savings.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Lead Data Engineer</div>
+                    <div class="exp-company">Chevron Corp - Commodity Supply Chain</div>
+                    <div class="exp-duration">November 2019 - June 2023</div>
+                    <div class="exp-location">Houston, TX</div>
+                    <div class="exp-description"><strong>TeraData to Azure Migration & Application Management:</strong> Managed 10+ supply chain applications spanning upstream, midstream, and downstream oil and gas domains. Led migration of TeraData database to Azure SQL, refactored integration solution from DataStage to Azure Data Factory. Managed Kinaxis Rapid Response application, optimized SSAS MDX cube performance, and automated support processes to reduce manual intervention.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Data Engineer</div>
+                    <div class="exp-company">DCP MidStream LLC (via LTI)</div>
+                    <div class="exp-duration">May 2018 - November 2019</div>
+                    <div class="exp-description"><strong>SQL Server Modernization & Power BI Migration:</strong> Migrated SQL Server 2008 R2 to SQL Server 2016, upgraded SSIS packages from 2008 to 2016, and refactored SSAS cubes. Developed new SSIS packages for complex ETL processes handling Oracle, MDS, SQL Server, SharePoint, and Project Server sources. Implemented Change Data Capture (CDC) strategies and migrated SSRS reports to Power BI dashboards.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Sr BI Developer</div>
+                    <div class="exp-company">British Gas Business Foundation (via Capgemini)</div>
+                    <div class="exp-duration">December 2014 - December 2016</div>
+                    <div class="exp-location">Mumbai, India</div>
+                    <div class="exp-description"><strong>Enterprise Data Warehouse Implementation:</strong> Led end-to-end implementation of enterprise data warehouse for BGB Foundation. Collaborated with architects to create HLD/LLD using ERWIN. Built 15 complex SSIS packages using ETL Accelerator Framework, developed SCD Type 1 and Type 2 tables, created SQL Agent and RMJ jobs for automated data loads. Mentored offshore development team and achieved zero errors in UAT.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Sr BI Developer</div>
+                    <div class="exp-company">Public Service Commission Australia</div>
+                    <div class="exp-duration">July 2014 - November 2014</div>
+                    <div class="exp-location">Mumbai, India</div>
+                    <div class="exp-description">Developed SSRS reports and SSAS Cubes, extracted data from various sources using SSIS, created calculated measures with role-based access control, and designed reports with multiple filter and lookup options for enhanced accessibility.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">System Analyst</div>
+                    <div class="exp-company">Ingram Micro</div>
+                    <div class="exp-duration">December 2016 - May 2018</div>
+                    <div class="exp-location">Mumbai, India</div>
+                    <div class="exp-description">System analysis and infrastructure support for enterprise clients, focusing on data platform optimization and system performance monitoring.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">Business Intelligence Developer</div>
+                    <div class="exp-company">Fino Payments Bank Ltd</div>
+                    <div class="exp-duration">November 2011 - May 2014</div>
+                    <div class="exp-location">Mumbai, India</div>
+                    <div class="exp-description">Developed business intelligence solutions, created data models, and built reporting systems to support financial analytics and decision-making processes.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="edu-degree">Master of Science - Computer Science</div>
+                <div class="edu-institution">SIES College of Arts, Science & Commerce SION(W)</div>
+                <div class="edu-dates">June 2006 - May 2008</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Suresh Christobher. All rights reserved. | <a href="mailto:chrissac1024@gmail.com">Get in Touch</a></p>
+        </footer>
+    </div>
+</body>
+</html>
