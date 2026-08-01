@@ -28,6 +28,24 @@
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Data Architecture Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
@@ -45,6 +63,34 @@
             position: relative;
         }
 
+        /* Data Layers Visual */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at center, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: pulse 4s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        /* Architecture layers decoration */
         .hero::after {
             content: '';
             position: absolute;
@@ -374,7 +420,10 @@
         <!-- Hero Section -->
         <section class="hero">
             <h1>Suresh Christobher</h1>
-            <p class="title">Data Architect | Databricks | Microsoft Fabric | Azure<br>Enterprise Data Platforms | AI & Generative AI | Data Governance</p>
+            <div style="display: inline-block; margin: 20px 0; padding: 15px 30px; border: 2px solid var(--accent); border-radius: 8px; background: rgba(6, 182, 212, 0.05);">
+                <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">◆ DATA ARCHITECTURE & ENGINEERING ◆</span>
+            </div>
+            <p class="title">Data Architect | Data Engineer | Enterprise Data Platforms<br>Cloud Architecture | Data Governance | ETL/ELT | Medallion Architecture</p>
             <p class="tagline">TOGAF Certified • 18+ Years Experience • Greater Houston</p>
             <div class="contact-links">
                 <a href="tel:+1-832-488-7197">Call: 832-488-7197</a>
@@ -418,40 +467,40 @@
             <h2 class="section-title">Core Competencies</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <p>✦ Data Architecture & Strategy</p>
+                    <p>⚙ Data Architecture & Strategy</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Cloud-Native Solutions</p>
+                    <p>☁ Cloud-Native Solutions</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ ETL/ELT Development</p>
+                    <p>⟲ ETL/ELT Development</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Data Integration & Orchestration</p>
+                    <p>🔗 Data Integration & Orchestration</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Data Quality & Governance</p>
+                    <p>✓ Data Quality & Governance</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ AI & Advanced Data Capabilities</p>
+                    <p>🤖 AI & Advanced Data Capabilities</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Business Intelligence & Reporting</p>
+                    <p>📊 Business Intelligence & Reporting</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Database & SQL Expertise</p>
+                    <p>🗄 Database & SQL Expertise</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Infrastructure & Performance Monitoring</p>
+                    <p>📈 Infrastructure & Performance</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Leadership & Delivery</p>
+                    <p>👥 Leadership & Delivery</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Operational Excellence</p>
+                    <p>⚡ Operational Excellence</p>
                 </div>
                 <div class="skill-card">
-                    <p>✦ Azure Fabric Data Engineering</p>
+                    <p>🏗 Azure Fabric Architecture</p>
                 </div>
             </div>
         </section>
@@ -459,6 +508,10 @@
         <!-- Technical Skills Section -->
         <section class="section">
             <h2 class="section-title">Technical Expertise</h2>
+            <div style="margin-bottom: 20px; padding: 15px; background: rgba(6, 182, 212, 0.08); border-left: 4px solid var(--accent); border-radius: 4px;">
+                <p style="color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">📊 Medallion Architecture | Data Lakehouse | Enterprise Data Platforms</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Expert in designing scalable, modular data architectures using bronze, silver, and gold layers with cloud-native technologies.</p>
+            </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
                     <h3 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase;">Languages & Tools</h3>
@@ -531,7 +584,7 @@
             <h2 class="section-title">Professional Experience</h2>
             <div class="experience-timeline">
                 <div class="experience-item">
-                    <div class="exp-title">Lead Data Engineer</div>
+                    <div class="exp-title">Architect / Lead Data Engineer</div>
                     <div class="exp-company">GCOM Information Technology Inc (SBA 8(a) Certified)</div>
                     <div class="exp-duration">July 2026 - Present</div>
                     <div class="exp-location">Houston, TX</div>
@@ -542,6 +595,11 @@
                     <div class="exp-company">Chevron Corp - DMC Ops Asset Class</div>
                     <div class="exp-duration">July 2025 - June 2026</div>
                     <div class="exp-location">Houston, TX</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Medallion Architecture</span>
+                        <span style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Azure Fabric</span>
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Data Migration</span>
+                    </div>
                     <div class="exp-description"><strong>CREG Lakehouse Migration & IPR Report Migration:</strong> Led end-to-end data migration from OneStream to Anaplan using Azure Synapse and ADLS Gen2. Designed medallion architecture pipelines, refactored complex Synapse notebooks, and migrated IPR reports to Microsoft Fabric. Reduced Azure costs by 30% through optimization strategies. Built Fabric Dataflows Gen2, Direct Lake Semantic Models, and implemented data governance with Microsoft Purview.</div>
                 </div>
 
@@ -550,6 +608,11 @@
                     <div class="exp-company">Chevron Corp - STB Asset Class</div>
                     <div class="exp-duration">July 2023 - June 2025</div>
                     <div class="exp-location">Houston, TX</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Cloud Migration</span>
+                        <span style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Databricks Optimization</span>
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">DBT/Delta Lake</span>
+                    </div>
                     <div class="exp-description"><strong>Cloud Migration & Data Platform Optimization:</strong> Built Azure Data Factory pipelines for migrating legacy System of Record data from Oracle and SAP ECC into Azure Data Lake Gen2. Developed Databricks workflows using PySpark and SQL, created Delta tables with Time Travel capabilities, and optimized query performance through materialized views. Implemented dbt for data quality checks and CI/CD pipelines. Reduced SSIS package execution time by 55% and optimized Databricks cluster utilization for 30% cost savings.</div>
                 </div>
 
@@ -558,6 +621,11 @@
                     <div class="exp-company">Chevron Corp - Commodity Supply Chain</div>
                     <div class="exp-duration">November 2019 - June 2023</div>
                     <div class="exp-location">Houston, TX</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">TeraData Migration</span>
+                        <span style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Application Management</span>
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">SSAS/OLAP</span>
+                    </div>
                     <div class="exp-description"><strong>TeraData to Azure Migration & Application Management:</strong> Managed 10+ supply chain applications spanning upstream, midstream, and downstream oil and gas domains. Led migration of TeraData database to Azure SQL, refactored integration solution from DataStage to Azure Data Factory. Managed Kinaxis Rapid Response application, optimized SSAS MDX cube performance, and automated support processes to reduce manual intervention.</div>
                 </div>
 
@@ -565,6 +633,11 @@
                     <div class="exp-title">Data Engineer</div>
                     <div class="exp-company">DCP MidStream LLC (via LTI)</div>
                     <div class="exp-duration">May 2018 - November 2019</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">SQL Server Modernization</span>
+                        <span style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">SSIS/ETL</span>
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Power BI Migration</span>
+                    </div>
                     <div class="exp-description"><strong>SQL Server Modernization & Power BI Migration:</strong> Migrated SQL Server 2008 R2 to SQL Server 2016, upgraded SSIS packages from 2008 to 2016, and refactored SSAS cubes. Developed new SSIS packages for complex ETL processes handling Oracle, MDS, SQL Server, SharePoint, and Project Server sources. Implemented Change Data Capture (CDC) strategies and migrated SSRS reports to Power BI dashboards.</div>
                 </div>
 
@@ -573,6 +646,11 @@
                     <div class="exp-company">British Gas Business Foundation (via Capgemini)</div>
                     <div class="exp-duration">December 2014 - December 2016</div>
                     <div class="exp-location">Mumbai, India</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">EDW Implementation</span>
+                        <span style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Star Schema</span>
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">SSIS/ETL Framework</span>
+                    </div>
                     <div class="exp-description"><strong>Enterprise Data Warehouse Implementation:</strong> Led end-to-end implementation of enterprise data warehouse for BGB Foundation. Collaborated with architects to create HLD/LLD using ERWIN. Built 15 complex SSIS packages using ETL Accelerator Framework, developed SCD Type 1 and Type 2 tables, created SQL Agent and RMJ jobs for automated data loads. Mentored offshore development team and achieved zero errors in UAT.</div>
                 </div>
 
@@ -581,6 +659,11 @@
                     <div class="exp-company">Public Service Commission Australia</div>
                     <div class="exp-duration">July 2014 - November 2014</div>
                     <div class="exp-location">Mumbai, India</div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">SSAS Cubes</span>
+                        <span style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">MDX</span>
+                        <span style="background: rgba(6, 182, 212, 0.2); color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">SSRS Reports</span>
+                    </div>
                     <div class="exp-description">Developed SSRS reports and SSAS Cubes, extracted data from various sources using SSIS, created calculated measures with role-based access control, and designed reports with multiple filter and lookup options for enhanced accessibility.</div>
                 </div>
 
@@ -602,6 +685,37 @@
             </div>
         </section>
 
+        <!-- Data Architecture Specializations -->
+        <section class="section">
+            <h2 class="section-title">Architecture Specializations</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid var(--border); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700;">🏗 Medallion Architecture</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Expert in designing and implementing medallion/lakehouse architecture with bronze, silver, and gold layers for scalable data processing and analytics.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid var(--border); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700;">☁ Cloud-Native Platforms</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Architected enterprise data solutions on Azure (Synapse, Databricks, Fabric, Data Lake) and AWS, with focus on scalability and cost optimization.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid var(--border); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700;">🔄 ETL/ELT Frameworks</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Designed and implemented modular, reusable ETL/ELT frameworks using DBT, Spark, and cloud-native orchestration platforms for enterprise data pipelines.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid var(--border); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700;">🛡 Data Governance</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Implemented comprehensive data governance frameworks with Unity Catalog, Purview, lineage tracking, and security compliance across enterprise platforms.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid var(--border); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700;">💰 Cost Optimization</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Specialized in FinOps and cloud cost optimization, achieving 30-70% cost reductions through platform tuning, cluster policies, and architectural redesigns.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid var(--border); padding: 20px; border-radius: 8px; border-top: 3px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; font-weight: 700;">🚀 Performance Tuning</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Expert in SQL optimization, query tuning, indexing strategies, and infrastructure performance monitoring to achieve 50%+ execution time improvements.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Education Section -->
         <section class="section">
             <h2 class="section-title">Education</h2>
@@ -614,7 +728,86 @@
 
         <!-- Footer -->
         <footer>
-            <p>© 2024 Suresh Christobher. All rights reserved. | <a href="mailto:chrissac1024@gmail.com">Get in Touch</a></p>
+            <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <svg viewBox="0 0 400 200" width="400" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%;">
+                    <!-- Background -->
+                    <defs>
+                        <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgba(6,182,212,0.3);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgba(34,211,238,0.3);stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Data Sources -->
+                    <g id="sources">
+                        <!-- Source 1 -->
+                        <rect x="20" y="20" width="50" height="40" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgb(6,182,212)" stroke-width="2"/>
+                        <text x="45" y="48" font-size="10" fill="rgb(34,211,238)" text-anchor="middle" font-weight="bold">Source</text>
+                        
+                        <!-- Source 2 -->
+                        <rect x="90" y="20" width="50" height="40" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgb(6,182,212)" stroke-width="2"/>
+                        <text x="115" y="48" font-size="10" fill="rgb(34,211,238)" text-anchor="middle" font-weight="bold">API</text>
+                        
+                        <!-- Source 3 -->
+                        <rect x="160" y="20" width="50" height="40" rx="4" fill="rgba(6,182,212,0.2)" stroke="rgb(6,182,212)" stroke-width="2"/>
+                        <text x="185" y="48" font-size="10" fill="rgb(34,211,238)" text-anchor="middle" font-weight="bold">Cloud</text>
+                    </g>
+                    
+                    <!-- Data Lake / Ingestion -->
+                    <g id="ingestion">
+                        <!-- ETL/ELT Processing -->
+                        <rect x="60" y="90" width="280" height="40" rx="6" fill="rgba(6,182,212,0.15)" stroke="rgb(34,211,238)" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="200" y="105" font-size="12" fill="rgb(34,211,238)" text-anchor="middle" font-weight="bold">ETL/ELT Pipeline & Data Integration</text>
+                        <text x="200" y="120" font-size="9" fill="rgb(148,163,184)" text-anchor="middle">(Azure | Databricks | Synapse)</text>
+                    </g>
+                    
+                    <!-- Data Warehouse / Analytics -->
+                    <g id="warehouse">
+                        <!-- Analytics Layer -->
+                        <circle cx="100" cy="170" r="25" fill="rgba(16,185,129,0.2)" stroke="rgb(16,185,129)" stroke-width="2"/>
+                        <text x="100" y="173" font-size="9" fill="rgb(16,185,129)" text-anchor="middle" font-weight="bold">Analytics</text>
+                        
+                        <!-- BI Layer -->
+                        <circle cx="200" cy="170" r="25" fill="rgba(6,182,212,0.2)" stroke="rgb(34,211,238)" stroke-width="2"/>
+                        <text x="200" y="173" font-size="9" fill="rgb(34,211,238)" text-anchor="middle" font-weight="bold">BI & Reports</text>
+                        
+                        <!-- AI/ML Layer -->
+                        <circle cx="300" cy="170" r="25" fill="rgba(6,182,212,0.2)" stroke="rgb(34,211,238)" stroke-width="2"/>
+                        <text x="300" y="173" font-size="9" fill="rgb(34,211,238)" text-anchor="middle" font-weight="bold">AI/ML</text>
+                    </g>
+                    
+                    <!-- Arrows showing data flow -->
+                    <path d="M 45 60 L 80 90" stroke="rgb(6,182,212)" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    <path d="M 115 60 L 135 90" stroke="rgb(6,182,212)" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    <path d="M 185 60 L 180 90" stroke="rgb(6,182,212)" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <path d="M 100 130 L 100 145" stroke="rgb(16,185,129)" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+                    <path d="M 200 130 L 200 145" stroke="rgb(34,211,238)" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+                    <path d="M 300 130 L 300 145" stroke="rgb(34,211,238)" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+                    
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="rgb(6,182,212)"/>
+                        </marker>
+                        <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="rgb(34,211,238)"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.95rem; text-align: center;">Enterprise Data Architecture | Cloud Integration | Analytics Platform</p>
+            <div style="display: flex; justify-content: center;">
+                <a href="mailto:chrissac1024@gmail.com" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--primary); text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease; border: 2px solid transparent;">Get in Touch</a>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 25px; text-align: center;">Suresh Christobher © 2024 | Architect & Data Engineer</p>
         </footer>
     </div>
 </body>
